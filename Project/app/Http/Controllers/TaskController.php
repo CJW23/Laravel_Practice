@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\User;
 use App\Http\Requests\BlankValidate;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -15,9 +17,13 @@ class TaskController extends Controller
     //데이터 리스트 출력
     public function index()
     {
+        $list = DB::table('tasks')
+                    ->join('users', 'users.id', '=', 'tasks.userid')
+                    ->select('tasks.*', 'users.email', 'users.name')
+                    ->get();
         //데이터 리스트 가져옴
-        $list = Task::all();
-
+        //$list = Task::all();
+        
         return view('tasks.index', [
             'lists' => $list
         ]);
