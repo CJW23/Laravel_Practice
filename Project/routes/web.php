@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
-
 Route::get('/test1', 'HomeController@test');
 
 Route::get('/projects', 'ProjectController@project');
@@ -32,3 +30,6 @@ Route::get('/tasks/{task:id}/edit', 'TaskController@edit');
 Route::put('/tasks/{task:id}', 'TaskController@update');
 
 Route::delete('/tasks/{task:id}', 'TaskController@destroy');
+Auth::routes();
+
+Route::get('/', 'TaskController@indexRedirect');

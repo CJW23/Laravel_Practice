@@ -4,10 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{csrf_token()}}">
+        <link rel="stylesheet" href="{{ mix('css/tailwind.css')}}">
         <title>@yield('title', 'Laravel')</title>
     </head>
     <body>
-
+        <div class="bg-red-800">
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <button>logout</button>
+            </form>
+        </div>
         @yield('content')
     </body>
 </html>

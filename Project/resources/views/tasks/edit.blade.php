@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')
 EDIT
@@ -9,13 +9,13 @@ EDIT
     @csrf
     @method('PUT')
     <div>
-        <input type="text" value="{{$task->title}}" name="title" id="title">
+        <input type="text" name="title" id="title" value="{{old('title') ? old('title'):$task->title}}">
         @error('title')
         {{$message}}
         @enderror
     </div>
     <div>
-        <textarea name="des" id="des">{{$task->des}}</textarea>
+        <textarea name="des" id="des">{{old('des') ? old('des'):$task->des}}</textarea>
         @error('des')
         {{$message}}
         @enderror

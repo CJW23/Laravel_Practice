@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title')
 CREATE
@@ -8,13 +8,13 @@ CREATE
 <form action='/tasks' method='POST'>
     @csrf
     <div>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" value="{{old('title') ? old('title'):''}}">
         @error('title')
         {{$message}}
         @enderror
     </div>
     <div>
-        <textarea name="des" id="des"></textarea>
+        <textarea name="des" id="des">{{old('des') ? old('des'):''}}</textarea>
         @error('des')
         {{$message}}
         @enderror
