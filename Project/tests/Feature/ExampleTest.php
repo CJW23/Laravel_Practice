@@ -14,7 +14,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        RefreshDatabase::
+        $response = $this->get('/login');
 
         $response->assertStatus(200);
     }

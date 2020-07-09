@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
-use App\User;
 use App\Http\Requests\BlankValidate;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +22,7 @@ class TaskController extends Controller
                     ->get();
         //데이터 리스트 가져옴
         //$list = Task::all();
-        
+
         return view('tasks.index', [
             'lists' => $list
         ]);
